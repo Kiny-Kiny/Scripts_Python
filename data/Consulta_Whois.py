@@ -1,4 +1,4 @@
-import socket
+import os, sys
 global R, B, C, Y, G, RT, CY, CO
 CO='\033[m'
 R='\033[1;31m'
@@ -9,12 +9,12 @@ Y='\033[1;33m'
 G='\033[1;32m'
 RT='\033[;0m'
 def main():
-			alvo = input(f"{C}[{Y}!{C}] {G}Ip do Alvo ~/ ")
+			import whois
+			dominio = input(f"{C}[{Y}!{C}] {G}Ip do Alvo ~/ ")
 			try:
-				sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-				sock.connect_ex((alvo, 22))
-				print(sock.recv(2048))
-				sock.close()
-			except:
-			  import time
-			  print(f"{R}Nenhuma info associada ao Host!");time.sleep(3);pass
+				consulta_whois = whois.whois(dominio)
+				print(consulta_whois.text);time.sleep(5)
+			except Exception as error:
+				import time
+				print(f"{R}ERRO! " + str(error));time.sleep(3)
+				pass
