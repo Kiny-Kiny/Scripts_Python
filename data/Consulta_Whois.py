@@ -1,5 +1,10 @@
+import os, sys
 def main():
-			import whois
+			try:
+				import whois
+			except:
+				os.system("pip install whois")
+				import whois
 			dominio = input("IP ALVO: ")
 			consulta_whois = whois.whois(dominio)
 			try:
