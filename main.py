@@ -29,6 +29,14 @@ try:
 except Exception as error:
 	print("ARQUIVO CORROMPIDO!" + str(error));exit()
 
+def restart():
+	python = sys.executable;os.excl(python, python, *sys.argv)
+
+try:
+	import whois
+except:
+	os.system("pip install whois");restart()
+
 Sair = False
 while(Sair == False):
 	clear()
