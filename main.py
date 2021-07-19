@@ -67,4 +67,5 @@ while(Sair == False):
 	elif op == 6:
 		Sair = True
 
-print("Adeus")
+clear()
+print(f"{R}Adeus")
