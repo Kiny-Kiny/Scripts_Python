@@ -3,7 +3,7 @@ import sys
 import socket
 import platform
 def clear():
-	os.system("cls");os.system("clear")
+	os.system("cls" if os.name== "nt" else "clear")
 
 def link():
 	if platform.system() == "Windows":
